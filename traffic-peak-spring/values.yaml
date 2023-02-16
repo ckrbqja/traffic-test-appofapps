@@ -1,0 +1,9 @@
+image: 967699999360.dkr.ecr.ap-northeast-2.amazonaws.com/result
+version: 5
+replicas: 3
+
+server:
+  port: 8993
+
+health:
+  path: /api/external/data/health-check

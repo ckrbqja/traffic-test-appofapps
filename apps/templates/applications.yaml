@@ -1,0 +1,18 @@
+{{- range $key,$val := .Values.applications }}
+    apiVersion: argoproj.io/v1alpha1
+    kind: Application
+    metadata:
+      name: {{ $key }}
+      namespace: argo
+      finalizers:
+      - resources-finalizer.argocd.argoproj.io
+    spec:
+      destination:
+        namespace: {{ $val.destination.namespace }}
+        server: {{ .Values.spec.destination.server }}
+      project: default
+      source:
+        path: helm-guestbook
+        repoURL: {{ .Values.spec.source.repoURL }}
+        targetRevision: {{ .Values.spec.source.targetRevision }}
+{{- end }}
