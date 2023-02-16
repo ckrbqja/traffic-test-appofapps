@@ -3,6 +3,7 @@
          string(name : 'BUILD_NM', defaultValue : '0', description : '')
          string(name : 'AWS_URL', defaultValue : '0', description : '')
          string(name : 'REPO_NM', defaultValue : '0', description : '')
+         string(name : 'FOLDER_NM', defaultValue : '0', description : '')
      }
 
      stage('✨ Clone Repo') {
@@ -13,6 +14,7 @@
 
         withCredentials([gitUsernamePassword(credentialsId: 'my-credentials-id', gitToolName: 'git-tool')]) {
           sh "git reset --hard origin/master"
+          sh "cd ${params.FOLDER_NM}"
           sh "sed -i 's@image:.*@image: ${params.AWS_URL}/${params.REPO_NM}@g' values.yaml"
           sh "sed -i 's@version:.*@version: ${params.BUILD_NM}@g' values.yaml"
           sh "git config --global user.email 'ckrbqja@gmail.com'"
