@@ -1,27 +1,23 @@
- node {
+node {
      parameters {
-         string(name : 'BUILD_NM', defaultValue : '0', description : '')
-         string(name : 'AWS_URL', defaultValue : '0', description : '')
-         string(name : 'REPO_NM', defaultValue : '0', description : '')
-         string(name : 'FOLDER_NM', defaultValue : '0', description : '')
+         string(name : 'BUILD_NM', defaultValue : '1', description : '')
+         string(name : 'AWS_URL', defaultValue : '1', description : '')
+         string(name : 'REPO_NM', defaultValue : '1', description : '')
+         string(name : 'FOLDER_NM', defaultValue : 'traffic-peak-spring', description : '')
      }
 
      stage('✨ Clone Repo') {
-        git branch: 'master', credentialsId: 'my-credentials-id', url: 'https://github.com/ckrbqja/traffic-peak-helm.git'
+        git branch: 'master', credentialsId: 'my-credentials-id', url: 'https://github.com/ckrbqja/traffic-test-appofapps'
      }
 
      stage('⚙ Build Set') {
 
         withCredentials([gitUsernamePassword(credentialsId: 'my-credentials-id', gitToolName: 'git-tool')]) {
-          sh "git reset --hard origin/master"
-          sh "cd ${params.FOLDER_NM}"
-          sh "sed -i 's@image:.*@image: ${params.AWS_URL}/${params.REPO_NM}@g' values.yaml"
-          sh "sed -i 's@version:.*@version: ${params.BUILD_NM}@g' values.yaml"
-          sh "git config --global user.email 'ckrbqja@gmail.com'"
-          sh "git config --global user.name 'ckrbqja'"
-          sh "git add values.yaml"
+          sh "sed -i 's@image:.*@image: ${params.AWS_URL}/${params.REPO_NM}@g' traffic-peak-spring/values.yaml"
+          sh "sed -i 's@version:.*@version: ${params.BUILD_NM}@g' traffic-peak-spring/values.yaml"
+          sh "git add ."
           sh "git commit -m '[Argo] Docker image tag: ${params.BUILD_NM}'"
-          sh "git push -f origin master"
+          sh "git push origin master"
         }
      }
 
