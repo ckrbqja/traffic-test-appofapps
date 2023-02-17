@@ -1,5 +1,5 @@
-image: null/null
-version: null
+image: 967699999360.dkr.ecr.ap-northeast-2.amazonaws.com/result
+version: 3
 replicas: 3
 
 server:
