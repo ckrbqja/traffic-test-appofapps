@@ -1,7 +1,7 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: {{ .Release.Name }}
+  name: {{ .Values.server.name }}
   namespace: {{ .Release.Namespace }}
   annotations:
     kubernetes.io/ingress.class: alb
@@ -18,6 +18,6 @@ spec:
             path: /
             backend:
               service:
-                name: {{ .Release.Name }}Service
+                name: {{ .Release.Name }}-service
                 port:
                   number: 80
