@@ -1,16 +1,18 @@
+{{- range $key,$val := .Values.applications }}
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: traffic-peak-spring
+  name: {{ $key }}
   namespace: argo
   finalizers:
     - resources-finalizer.argocd.argoproj.io
 spec:
   destination:
-    namespace: helm-guestbook
-    server: {{ .Values.spec.destination.server }}
+    namespace: {{ $val.destination.namespace }}
+    server: {{ $val.destination.server }}
   project: default
   source:
-    path: traffic-peak-spring
-    repoURL: {{ .Values.spec.source.repoURL }}
-    targetRevision: {{ .Values.spec.source.targetRevision }}
+    path: {{ $key }}
+    repoURL: {{ $.Values.spec.source.repoURL }}
+    targetRevision: {{ $.Values.spec.source.targetRevision }}
+{{- end }}
