@@ -9,7 +9,7 @@ metadata:
 spec:
   destination:
     namespace: {{ $val.destination.namespace }}
-    server: {{ $val.destination.server }}
+    server: {{ $.Values.spec.destination.server }}
   project: default
   source:
     path: {{ $key }}
