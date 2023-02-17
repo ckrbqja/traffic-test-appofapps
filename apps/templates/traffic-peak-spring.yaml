@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: traffic-peak-spring.yaml
+  name: traffic-peak-spring
   namespace: argo
   finalizers:
     - resources-finalizer.argocd.argoproj.io
