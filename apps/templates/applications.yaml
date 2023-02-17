@@ -9,7 +9,7 @@
     spec:
       destination:
         namespace: {{ $val.destination.namespace }}
-        server: {{ .Values.spec.destination.server }}
+        server: {{ $val.destination.server }}
       project: default
       source:
         path: helm-guestbook
