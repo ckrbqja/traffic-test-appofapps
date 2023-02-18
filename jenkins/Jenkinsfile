@@ -10,7 +10,7 @@
         git branch: 'master', credentialsId: 'my-credentials-id', url: 'https://github.com/ckrbqja/traffic-peak-helm.git'
      }
 
-     stage('⚙ Build Set') {
+     stage('⚙ Git Upt') {
 
         withCredentials([gitUsernamePassword(credentialsId: 'my-credentials-id', gitToolName: 'git-tool')]) {
           sh "git reset --hard origin/master"
