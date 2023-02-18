@@ -8,7 +8,7 @@ metadata:
 spec:
   project: default
   destination:
-    namespace: {{ $.Values.spec.destination.server }}
+    namespace: {{ $.Values.spec.destination.namespace }}
     server: {{ $.Values.spec.destination.server }}
   source:
     path: traffic-delivery-fastapi
