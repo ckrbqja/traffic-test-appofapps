@@ -1,18 +1,18 @@
-{{- range $key,$val := .Values.applications }}
+{{- range $app := .Values.applications }}
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: {{ $key }}
+  name: {{ $app }}
   namespace: argo
   finalizers:
     - resources-finalizer.argocd.argoproj.io
 spec:
   project: apps
   destination:
-    namespace: {{ $val.destination.namespace }}
-    server: {{ $.Values.spec.destination.server }}
+    namespace: null
+    server: null
   source:
-    path: /{{ $key }}
+    path: /{{ $app }}
     repoURL: {{ $.Values.spec.source.repoURL }}
     targetRevision: {{ $.Values.spec.source.targetRevision }}
 {{- end }}
