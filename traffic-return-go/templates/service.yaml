@@ -5,7 +5,7 @@ metadata:
   namespace: {{ .Release.Namespace }}
 spec:
   selector:
-    name: delivery-api
+    name: return-api
   ports:
     - port: 80
       targetPort: {{ .Values.server.port }}

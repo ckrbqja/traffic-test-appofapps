@@ -7,16 +7,16 @@ spec:
   replicas: {{ .Values.replicas }}
   selector:
     matchLabels:
-      name: delivery-api
+      name: return-api
   template:
     metadata:
-      name: delivery-api
-      namespace: delivery-api
+      name: return-api
+      namespace: return-api
       labels:
-        name: delivery-api
+        name: return-api
     spec:
       containers:
-        - name: delivery-api
+        - name: return-api
           image: {{ .Values.image }}:{{ .Values.version }}
           livenessProbe:
             httpGet:
