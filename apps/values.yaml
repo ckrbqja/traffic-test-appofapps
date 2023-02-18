@@ -10,8 +10,12 @@ applications:
     destination:
       namespace: null
       server: null
-#  traffic-peak-spring:
-#    destination:
-#      namespace: null
-#      server: null
+  traffic-peak-spring:
+    destination:
+      namespace: null
+      server: null
+  traffic-return-go:
+    destination:
+      namespace: null
+      server: null
 
