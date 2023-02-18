@@ -7,6 +7,4 @@ spec:
     
 apps:
   - traffic-delivery-fastapi
-  - traffic-peak-spring
-  - traffic-return-go
 
