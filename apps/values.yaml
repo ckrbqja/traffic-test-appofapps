@@ -10,4 +10,8 @@ applications:
     destination:
       namespace: null
       server: null
-    
+  traffic-delivery-fastapi:
+    destination:
+      namespace: null
+      server: null
+
