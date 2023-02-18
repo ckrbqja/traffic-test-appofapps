@@ -8,7 +8,7 @@ metadata:
   finalizers:
     - resources-finalizer.argocd.argoproj.io
 spec:
-  project: default
+  project: traffic-test
   destination:
     namespace: {{ $.Values.spec.destination.namespace }}
     server: {{ $.Values.spec.destination.server }}
