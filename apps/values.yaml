@@ -6,7 +6,7 @@ spec:
     targetRevision: HEAD
     
 applications:
-  - traffic-delivery-fastapi:
-  - traffic-peak-spring:
-  - traffic-return-go:
+  - traffic-delivery-fastapi
+  - traffic-peak-spring
+  - traffic-return-go
 
