@@ -9,8 +9,8 @@ metadata:
 spec:
   project: apps
   destination:
-    namespace: null
-    server: null
+    namespace: {{ $.Values.spec.destination.server }}
+    server: {{ $.Values.spec.destination.server }}
   source:
     path: /{{ $apps }}
     repoURL: {{ $.Values.spec.source.repoURL }}
