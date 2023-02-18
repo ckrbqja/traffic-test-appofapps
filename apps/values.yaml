@@ -5,7 +5,7 @@ spec:
     repoURL: https://github.com/ckrbqja/traffic-test-appofapps.git
     targetRevision: HEAD
     
-applications:
+apps:
   - traffic-delivery-fastapi
   - traffic-peak-spring
   - traffic-return-go
