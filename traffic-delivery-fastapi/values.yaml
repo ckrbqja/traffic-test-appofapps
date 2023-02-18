@@ -1,5 +1,5 @@
 image: 967699999360.dkr.ecr.ap-northeast-2.amazonaws.com/delivery
-version: 4
+version: 5
 replicas: 3
 
 
