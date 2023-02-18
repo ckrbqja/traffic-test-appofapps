@@ -1,5 +1,5 @@
-image: 967699999360.dkr.ecr.ap-northeast-2.amazonaws.com/result
-version: 5
+image: 967699999360.dkr.ecr.ap-northeast-2.amazonaws.com/return
+version: 4
 replicas: 3
 
 
