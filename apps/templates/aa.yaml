@@ -11,6 +11,6 @@ spec:
     namespace: {{ $.Values.spec.destination.server }}
     server: {{ $.Values.spec.destination.server }}
   source:
-    path: /traffic-delivery-fastapi
+    path: traffic-delivery-fastapi
     repoURL: {{ $.Values.spec.source.repoURL }}
     targetRevision: {{ $.Values.spec.source.targetRevision }}
